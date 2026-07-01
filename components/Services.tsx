@@ -2,18 +2,19 @@ import { homestay } from "@/lib/content";
 
 export default function Services() {
   return (
-    <section className="bg-pine px-5 py-12">
+    <section className="bg-pine py-12">
+      <div className="max-w-screen-xl mx-auto px-5 md:px-10">
       <p className="text-pine-light text-xs font-semibold uppercase tracking-widest mb-2">
         What&apos;s included
       </p>
-      <h2 className="font-display text-white text-3xl leading-snug mb-2">
+      <h2 className="font-display text-white text-3xl leading-snug mb-2 md:text-4xl">
         More than a room
       </h2>
-      <p className="text-white/60 text-sm mb-8 leading-relaxed">
+      <p className="text-white/60 text-sm mb-8 leading-relaxed md:max-w-xl">
         These extras are only available when you book directly with Bikash — you won&apos;t find them listed anywhere else.
       </p>
 
-      <div className="grid grid-cols-2 gap-3">
+      <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4">
         {homestay.services.map((service) => (
           <div
             key={service.name}
@@ -28,6 +29,7 @@ export default function Services() {
             </div>
           </div>
         ))}
+      </div>
       </div>
     </section>
   );

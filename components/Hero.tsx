@@ -36,34 +36,66 @@ export default function Hero() {
       </div>
 
       {/* Content pinned to bottom */}
-      <div className="relative z-10 mt-auto px-5 pb-28">
-        <div className="flex gap-6 mb-5">
-          {homestay.stats.map((stat) => (
-            <div key={stat.label}>
-              <div className="text-dawn font-semibold text-lg leading-none">
-                {stat.value}
-              </div>
-              <div className="text-white/60 text-xs mt-0.5">{stat.label}</div>
+      <div className="relative z-10 mt-auto">
+        <div className="max-w-screen-xl mx-auto px-5 pb-28 lg:pb-24 lg:grid lg:grid-cols-2 lg:items-end lg:gap-16">
+          {/* Left: headline + CTA */}
+          <div>
+            <div className="flex gap-6 mb-5">
+              {homestay.stats.map((stat) => (
+                <div key={stat.label}>
+                  <div className="text-dawn font-semibold text-lg leading-none lg:text-xl">
+                    {stat.value}
+                  </div>
+                  <div className="text-white/60 text-xs mt-0.5">{stat.label}</div>
+                </div>
+              ))}
             </div>
-          ))}
+
+            <h1 className="font-display text-white text-4xl leading-tight tracking-tight mb-2 lg:text-6xl">
+              Your home<br />in the hills
+            </h1>
+            <p className="text-white/75 text-sm leading-relaxed mb-6 max-w-xs lg:text-base lg:max-w-sm">
+              {homestay.location} · Book directly with Bikash
+            </p>
+
+            <a
+              href={genericBookingURL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2.5 bg-wa-green text-white font-semibold text-base py-3.5 px-6 rounded-xl shadow-lg hover:opacity-90 active:scale-95 transition-transform"
+            >
+              <WaIcon />
+              Book on WhatsApp
+            </a>
+          </div>
+
+          {/* Right: quick-info card — desktop only */}
+          <div className="hidden lg:block">
+            <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 max-w-xs ml-auto">
+              <p className="text-white/50 text-xs font-semibold uppercase tracking-widest mb-4">
+                Quick info
+              </p>
+              <div className="space-y-3">
+                <div className="flex justify-between text-sm">
+                  <span className="text-white/60">Check-in</span>
+                  <span className="text-white font-medium">{homestay.checkIn}</span>
+                </div>
+                <div className="flex justify-between text-sm">
+                  <span className="text-white/60">Check-out</span>
+                  <span className="text-white font-medium">{homestay.checkOut}</span>
+                </div>
+                <div className="flex justify-between text-sm">
+                  <span className="text-white/60">Rooms from</span>
+                  <span className="text-dawn font-semibold">₹1,500 / night</span>
+                </div>
+                <div className="flex justify-between text-sm">
+                  <span className="text-white/60">Payment</span>
+                  <span className="text-white font-medium">On arrival</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-
-        <h1 className="font-display text-white text-4xl leading-tight tracking-tight mb-2">
-          Your home<br />in the hills
-        </h1>
-        <p className="text-white/75 text-sm leading-relaxed mb-6 max-w-xs">
-          {homestay.location} · Book directly with Bikash
-        </p>
-
-        <a
-          href={genericBookingURL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2.5 bg-wa-green text-white font-semibold text-base py-3.5 px-6 rounded-xl shadow-lg active:scale-95 transition-transform"
-        >
-          <WaIcon />
-          Book on WhatsApp
-        </a>
       </div>
     </section>
   );

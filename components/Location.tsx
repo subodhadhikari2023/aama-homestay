@@ -10,78 +10,87 @@ const WaIcon = () => (
 
 export default function Location() {
   return (
-    <section className="bg-mist px-5 py-12 pb-32">
-      {/* Scenic view photo */}
-      <div className="relative h-44 rounded-2xl overflow-hidden mb-7 border border-mist-dark">
-        <Image
-          src="/images/location.jpg"
-          alt="Misty valley view from Kurseong"
-          fill
-          className="object-cover"
-        />
-      </div>
+    <section className="bg-mist py-12 pb-32">
+      <div className="max-w-screen-xl mx-auto px-5 md:px-10">
 
-      <p className="text-pine text-xs font-semibold uppercase tracking-widest mb-2">
-        Find us
-      </p>
-      <h2 className="font-display text-bark text-3xl leading-snug mb-2">
-        Kurseong, West Bengal
-      </h2>
-      <p className="text-bark/60 text-sm mb-6">{homestay.address}</p>
+        {/* Scenic panorama — full width */}
+        <div className="relative h-52 md:h-72 lg:h-80 rounded-2xl overflow-hidden mb-8 border border-mist-dark">
+          <Image
+            src="/images/location.jpg"
+            alt="Misty valley view from Kurseong"
+            fill
+            className="object-cover"
+          />
+        </div>
 
-      <div className="flex flex-wrap gap-2 mb-6">
-        {[
-          "9 min walk to Eagle's Crag",
-          "1 km from Kurseong market",
-          "2.8 km from Castleton Tea Estate",
-          "38 km from Bagdogra Airport",
-        ].map((d) => (
-          <span
-            key={d}
-            className="text-xs text-bark/70 bg-cloud border border-mist-dark rounded-full px-3 py-1.5"
-          >
-            📍 {d}
-          </span>
-        ))}
-      </div>
-
-      <div className="rounded-2xl overflow-hidden border border-mist-dark mb-8 h-52">
-        <iframe
-          src={homestay.googleMapsEmbed}
-          width="100%"
-          height="100%"
-          style={{ border: 0 }}
-          allowFullScreen
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-          title="Aama Homestay location"
-        />
-      </div>
-
-      <div className="bg-bark rounded-2xl p-6 text-center">
-        <h3 className="font-display text-white text-2xl mb-1">Ready to book?</h3>
-        <p className="text-white/60 text-sm mb-5">
-          Check-in {homestay.checkIn} · Check-out {homestay.checkOut}
-          <br />
-          Pay on arrival · UPI or cash accepted
+        <p className="text-pine text-xs font-semibold uppercase tracking-widest mb-2">
+          Find us
         </p>
+        <h2 className="font-display text-bark text-3xl leading-snug mb-2 md:text-4xl">
+          Kurseong, West Bengal
+        </h2>
+        <p className="text-bark/60 text-sm mb-6">{homestay.address}</p>
 
-        <a
-          href={genericBookingURL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center justify-center gap-2.5 w-full bg-wa-green text-white font-semibold text-base py-4 rounded-xl active:scale-95 transition-transform mb-3"
-        >
-          <WaIcon />
-          Book on WhatsApp
-        </a>
+        <div className="flex flex-wrap gap-2 mb-8">
+          {[
+            "9 min walk to Eagle's Crag",
+            "1 km from Kurseong market",
+            "2.8 km from Castleton Tea Estate",
+            "38 km from Bagdogra Airport",
+          ].map((d) => (
+            <span
+              key={d}
+              className="text-xs text-bark/70 bg-cloud border border-mist-dark rounded-full px-3 py-1.5"
+            >
+              📍 {d}
+            </span>
+          ))}
+        </div>
 
-        <a
-          href={`tel:${homestay.phone}`}
-          className="flex items-center justify-center gap-2 w-full border border-white/20 text-white/80 text-sm font-medium py-3.5 rounded-xl active:bg-white/10 transition-colors"
-        >
-          📞 Call {homestay.phone}
-        </a>
+        {/* Map + CTA side-by-side on md+ */}
+        <div className="md:grid md:grid-cols-2 md:gap-8 md:items-start">
+          <div className="rounded-2xl overflow-hidden border border-mist-dark h-64 md:h-80 mb-8 md:mb-0">
+            <iframe
+              src={homestay.googleMapsEmbed}
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Aama Homestay location"
+            />
+          </div>
+
+          <div className="bg-bark rounded-2xl p-6 text-center md:text-left">
+            <h3 className="font-display text-white text-2xl mb-1 md:text-3xl">
+              Ready to book?
+            </h3>
+            <p className="text-white/60 text-sm mb-5">
+              Check-in {homestay.checkIn} · Check-out {homestay.checkOut}
+              <br />
+              Pay on arrival · UPI or cash accepted
+            </p>
+
+            <a
+              href={genericBookingURL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2.5 w-full bg-wa-green text-white font-semibold text-base py-4 rounded-xl hover:opacity-90 active:scale-95 transition-transform mb-3"
+            >
+              <WaIcon />
+              Book on WhatsApp
+            </a>
+
+            <a
+              href={`tel:${homestay.phone}`}
+              className="flex items-center justify-center gap-2 w-full border border-white/20 text-white/80 text-sm font-medium py-3.5 rounded-xl hover:bg-white/10 active:bg-white/10 transition-colors"
+            >
+              📞 Call {homestay.phone}
+            </a>
+          </div>
+        </div>
+
       </div>
     </section>
   );
