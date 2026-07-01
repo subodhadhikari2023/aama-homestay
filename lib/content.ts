@@ -28,7 +28,7 @@ export const homestay = {
       name: "Suite Room",
       description:
         "Our most spacious room with a private bathtub, mountain-facing balcony, and stunning Kanchenjunga views on clear mornings.",
-      directPrice: 2200 as number | null,
+      directPrice: null as number | null,
       capacity: "2 guests",
       amenities: [
         "Private bathtub",
@@ -45,7 +45,7 @@ export const homestay = {
       name: "Family Room",
       description:
         "Large room with kitchen access, terrace with river and lake views. Ideal for families. Accommodates up to 6 guests comfortably.",
-      directPrice: 1800 as number | null,
+      directPrice: null as number | null,
       capacity: "Up to 6 guests",
       amenities: [
         "Kitchen access",
@@ -61,7 +61,7 @@ export const homestay = {
       name: "Deluxe Room",
       description:
         "Comfortable double room with a private bathroom, garden views, and all essential amenities for a peaceful hill stay.",
-      directPrice: 1500 as number | null,
+      directPrice: null as number | null,
       capacity: "2 guests",
       amenities: [
         "Private bathroom",

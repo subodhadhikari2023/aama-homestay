@@ -86,7 +86,7 @@ export default function Hero() {
                 </div>
                 <div className="flex justify-between text-sm">
                   <span className="text-white/60">Rooms from</span>
-                  <span className="text-dawn font-semibold">₹1,500 / night</span>
+                  <span className="text-dawn font-semibold">Contact for pricing</span>
                 </div>
                 <div className="flex justify-between text-sm">
                   <span className="text-white/60">Payment</span>

@@ -56,8 +56,8 @@ export default function Rooms() {
                       <span className="text-xs text-bark/40">/night</span>
                     </>
                   ) : (
-                    <span className="font-display text-5xl font-bold text-bark/15 select-none leading-none">
-                      {PLACEHOLDER_LABELS[index]}
+                    <span className="text-bark/50 text-sm font-medium">
+                      Price on request
                     </span>
                   )}
                 </div>
