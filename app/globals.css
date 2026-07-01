@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --mist: #F0F4F0;
+  --pine: #2C5F2E;
+  --pine-light: #4A8F4D;
+  --dawn: #D4732A;
+  --bark: #3D2B1F;
+  --cloud: #FFFFFF;
+  --mist-dark: #D8E4D8;
+  --wa-green: #25D366;
+}
+
+body {
+  background-color: var(--mist);
+  color: var(--bark);
+}
+
+.price-ota {
+  text-decoration: line-through;
+  color: #9CA3AF;
+}
