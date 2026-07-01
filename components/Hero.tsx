@@ -52,7 +52,7 @@ export default function Hero() {
             </div>
 
             <h1 className="font-display text-white text-4xl leading-tight tracking-tight mb-2 lg:text-6xl">
-              Your home<br />in the hills
+              Your home{" "}<br />in the hills
             </h1>
             <p className="text-white/75 text-sm leading-relaxed mb-6 max-w-xs lg:text-base lg:max-w-sm">
               {homestay.location} · Book directly with Bikash
