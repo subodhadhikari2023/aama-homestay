@@ -48,10 +48,18 @@ export default function Rooms() {
                 </div>
 
                 <div className="flex items-baseline gap-2 mb-3">
-                  <span className="text-dawn text-2xl font-bold">
-                    ₹{room.directPrice.toLocaleString("en-IN")}
-                  </span>
-                  <span className="text-xs text-bark/40">/night</span>
+                  {room.directPrice !== null ? (
+                    <>
+                      <span className="text-dawn text-2xl font-bold">
+                        ₹{room.directPrice.toLocaleString("en-IN")}
+                      </span>
+                      <span className="text-xs text-bark/40">/night</span>
+                    </>
+                  ) : (
+                    <span className="font-display text-5xl font-bold text-bark/15 select-none leading-none">
+                      {PLACEHOLDER_LABELS[index]}
+                    </span>
+                  )}
                 </div>
 
                 <p className="text-bark/70 text-sm leading-relaxed mb-4">

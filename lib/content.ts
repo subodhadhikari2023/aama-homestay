@@ -28,7 +28,7 @@ export const homestay = {
       name: "Suite Room",
       description:
         "Our most spacious room with a private bathtub, mountain-facing balcony, and stunning Kanchenjunga views on clear mornings.",
-      directPrice: 2200,
+      directPrice: 2200 as number | null,
       capacity: "2 guests",
       amenities: [
         "Private bathtub",
@@ -39,15 +39,13 @@ export const homestay = {
         "Electric kettle",
         "Bathrobes & slippers",
       ],
-      whatsappMessage:
-        "Hi Bikash bhai, I'm interested in the Suite Room at Aama Homestay. My dates are: [check-in to check-out]. Number of guests: []. Please confirm availability.",
     },
     {
       id: "family",
       name: "Family Room",
       description:
         "Large room with kitchen access, terrace with river and lake views. Ideal for families. Accommodates up to 6 guests comfortably.",
-      directPrice: 1800,
+      directPrice: 1800 as number | null,
       capacity: "Up to 6 guests",
       amenities: [
         "Kitchen access",
@@ -57,15 +55,13 @@ export const homestay = {
         "Baby safety gate",
         "Dressing room",
       ],
-      whatsappMessage:
-        "Hi Bikash bhai, I'm interested in the Family Room at Aama Homestay. My dates are: [check-in to check-out]. Number of guests: []. Please confirm availability.",
     },
     {
       id: "deluxe",
       name: "Deluxe Room",
       description:
         "Comfortable double room with a private bathroom, garden views, and all essential amenities for a peaceful hill stay.",
-      directPrice: 1500,
+      directPrice: 1500 as number | null,
       capacity: "2 guests",
       amenities: [
         "Private bathroom",
@@ -74,8 +70,6 @@ export const homestay = {
         "Heater",
         "Towels & linen",
       ],
-      whatsappMessage:
-        "Hi Bikash bhai, I'm interested in the Deluxe Room at Aama Homestay. My dates are: [check-in to check-out]. Number of guests: []. Please confirm availability.",
     },
   ],
 
@@ -111,8 +105,18 @@ export const homestay = {
     },
   ],
 
-  genericWhatsappMessage:
-    "Hi Bikash bhai, I'd like to book a room at Aama Homestay directly. My dates are: [check-in to check-out]. Number of guests: []. Please share availability and pricing.",
+  genericWhatsappMessage: [
+    "Hi Bikash bhai,",
+    "",
+    "I'd like to book a room at Aama Homestay.",
+    "",
+    "Check-in: ",
+    "Check-out: ",
+    "Guests: ",
+    "",
+    "Could you please share availability and pricing?",
+    "Thank you.",
+  ].join("\n"),
 };
 
 export type Room = (typeof homestay.rooms)[number];
