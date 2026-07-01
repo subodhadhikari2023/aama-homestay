@@ -24,6 +24,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  verification: {
+    google: "wlJaglBeNZvuG6KlQQpK8TIMlnDXJ1rgI0qu73NjYiI",
+  },
   openGraph: {
     title: "Aama Homestay Kurseong — Book Direct",
     description:
