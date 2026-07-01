@@ -1,6 +1,13 @@
-import Image from "next/image";
 import { homestay } from "@/lib/content";
 import { roomBookingURL } from "@/lib/whatsapp";
+
+const PLACEHOLDER_LABELS = ["A", "B", "C"];
+
+const PLACEHOLDER_GRADIENTS = [
+  "from-pine/25 to-pine/10",
+  "from-dawn/20 to-dawn/5",
+  "from-bark/20 to-bark/5",
+];
 
 const WaIcon = () => (
   <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
@@ -10,69 +17,71 @@ const WaIcon = () => (
 
 export default function Rooms() {
   return (
-    <section className="bg-mist px-5 py-12">
-      <p className="text-pine text-xs font-semibold uppercase tracking-widest mb-2">
-        Rooms
-      </p>
-      <h2 className="font-display text-bark text-3xl leading-snug mb-8">
-        Choose your room
-      </h2>
+    <section className="bg-mist py-12">
+      <div className="max-w-screen-xl mx-auto px-5 md:px-10">
+        <p className="text-pine text-xs font-semibold uppercase tracking-widest mb-2">
+          Rooms
+        </p>
+        <h2 className="font-display text-bark text-3xl leading-snug mb-8 md:text-4xl">
+          Choose your room
+        </h2>
 
-      <div className="space-y-6">
-        {homestay.rooms.map((room) => (
-          <div
-            key={room.id}
-            className="bg-cloud rounded-2xl overflow-hidden border border-mist-dark"
-          >
-            <div className="relative h-52">
-              <Image
-                src={`/images/${room.id}.jpg`}
-                alt={room.name}
-                fill
-                className="object-cover"
-              />
-            </div>
-
-            <div className="p-5">
-              <div className="flex items-start justify-between mb-1">
-                <h3 className="font-display text-bark text-xl">{room.name}</h3>
-                <span className="text-bark/50 text-xs mt-1">{room.capacity}</span>
-              </div>
-
-              <div className="flex items-baseline gap-2 mb-3">
-                <span className="text-dawn text-2xl font-bold">
-                  ₹{room.directPrice.toLocaleString("en-IN")}
-                </span>
-                <span className="text-xs text-bark/40">/night</span>
-              </div>
-
-              <p className="text-bark/70 text-sm leading-relaxed mb-4">
-                {room.description}
-              </p>
-
-              <div className="flex flex-wrap gap-1.5 mb-5">
-                {room.amenities.map((a) => (
-                  <span
-                    key={a}
-                    className="text-xs text-pine bg-pine/10 border border-pine/15 rounded-full px-2.5 py-1"
-                  >
-                    {a}
-                  </span>
-                ))}
-              </div>
-
-              <a
-                href={roomBookingURL(room.id)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 w-full bg-pine text-white font-semibold text-sm py-3.5 rounded-xl active:bg-pine-light transition-colors"
+        <div className="space-y-6 md:grid md:grid-cols-2 md:gap-6 md:space-y-0 lg:grid-cols-3">
+          {homestay.rooms.map((room, index) => (
+            <div
+              key={room.id}
+              className="bg-cloud rounded-2xl overflow-hidden border border-mist-dark flex flex-col"
+            >
+              {/* Placeholder until room interior photos are available */}
+              <div
+                className={`h-52 bg-gradient-to-br ${PLACEHOLDER_GRADIENTS[index]} flex items-center justify-center shrink-0`}
               >
-                <WaIcon />
-                Book {room.name} on WhatsApp
-              </a>
+                <span className="font-display text-8xl font-bold text-bark/10 select-none">
+                  {PLACEHOLDER_LABELS[index]}
+                </span>
+              </div>
+
+              <div className="p-5 flex flex-col flex-1">
+                <div className="flex items-start justify-between mb-1">
+                  <h3 className="font-display text-bark text-xl">{room.name}</h3>
+                  <span className="text-bark/50 text-xs mt-1">{room.capacity}</span>
+                </div>
+
+                <div className="flex items-baseline gap-2 mb-3">
+                  <span className="text-dawn text-2xl font-bold">
+                    ₹{room.directPrice.toLocaleString("en-IN")}
+                  </span>
+                  <span className="text-xs text-bark/40">/night</span>
+                </div>
+
+                <p className="text-bark/70 text-sm leading-relaxed mb-4">
+                  {room.description}
+                </p>
+
+                <div className="flex flex-wrap gap-1.5 mb-5">
+                  {room.amenities.map((a) => (
+                    <span
+                      key={a}
+                      className="text-xs text-pine bg-pine/10 border border-pine/15 rounded-full px-2.5 py-1"
+                    >
+                      {a}
+                    </span>
+                  ))}
+                </div>
+
+                <a
+                  href={roomBookingURL(room.id)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-auto flex items-center justify-center gap-2 w-full bg-pine text-white font-semibold text-sm py-3.5 rounded-xl hover:bg-pine-light active:bg-pine-light transition-colors"
+                >
+                  <WaIcon />
+                  Book {room.name} on WhatsApp
+                </a>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );
