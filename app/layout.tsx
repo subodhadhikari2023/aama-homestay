@@ -14,19 +14,25 @@ const inter = Inter({
   display: "swap",
 });
 
+const SITE_URL = "https://aama-homestay.vercel.app";
+
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.VERCEL_URL
-      ? `https://${process.env.VERCEL_URL}`
-      : "http://localhost:3000"
-  ),
+  metadataBase: new URL(SITE_URL),
   title: "Aama Homestay Kurseong — Book Direct",
   description:
     "Nestled in Kurseong with mountain and river views. Book directly with Bikash for the best rates. WhatsApp booking, pay on arrival.",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    title: "Aama Homestay Kurseong",
-    description: "Your home in the hills. Book direct on WhatsApp.",
-    images: ["/images/hero.jpg"],
+    title: "Aama Homestay Kurseong — Book Direct",
+    description:
+      "Nestled in Kurseong with mountain and river views. Book directly with Bikash for the best rates. WhatsApp booking, pay on arrival.",
+    url: SITE_URL,
+    siteName: "Aama Homestay",
+    images: [{ url: "/images/hero.jpg", width: 1280, height: 960, alt: "Sunset view from Aama Homestay balcony, Kurseong" }],
+    locale: "en_IN",
+    type: "website",
   },
 };
 
